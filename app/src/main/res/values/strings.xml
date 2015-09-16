@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">YohnnSafe</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_home_">Home_Activity</string>
+    <string name="title_activity_setting_">Setting_Activity</string>
+    <string name="title_activity_setup1_">Setup1_Activity</string>
+    <string name="title_activity_lost_find_">LostFind_Activity</string>
+    <string name="title_activity_setup2_">Setup2_Activity</string>
+    <string name="title_activity_setup3_">Setup3_Activity</string>
+    <string name="title_activity_setup4_">Setup4_Activity</string>
+    <string name="title_activity_contacts_">Contacts_Activity</string>
+    <string name="title_activity_adress_">Adress_Activity</string>
+    <string name="title_activity_call_addres_">CallAddres_Activity</string>
+    <string name="title_activity_address__location_">Address_Location_Activity</string>
+    <string name="title_activity_call_safe_">CallSafe_Activity</string>
+    <string name="title_activity_app_manager_">AppManager_Activity</string>
+    <string name="title_activity_back_up_sms_">BackUpSms_Activity</string>
+    <string name="title_activity_task_manager_">TaskManager_Activity</string>
+</resources>

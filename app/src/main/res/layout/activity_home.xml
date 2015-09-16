@@ -1,0 +1,31 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.yohnnsafe.ench_wu.yohnnsafe.activity.Home_Activity"
+    android:id="@+id/home_layout">
+
+    <TextView
+        style="@style/StyleTitle"
+        android:text="功能列表"
+      />
+
+    <TextView
+        android:singleLine="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ellipsize="marquee"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:text="用了ench_wu开发的手机卫士，妈妈再也不用担心我的手机了。腰不酸，腿不让，走路还有劲了！"
+        android:textColor="@color/black"
+        android:textSize="16sp" />
+
+    <GridView
+        android:id="@+id/gv_home"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:numColumns="3"></GridView>
+</LinearLayout>

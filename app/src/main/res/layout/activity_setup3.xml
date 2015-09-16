@@ -1,0 +1,96 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    xmlns:ench="http://schemas.android.com/apk/com.yohnnsafe.ench_wu.yohnnsafe"
+    android:layout_height="match_parent"
+    tools:context="com.yohnnsafe.ench_wu.yohnnsafe.activity.Setup1_Activity"
+    android:orientation="vertical">
+
+    <TextView
+        style="@style/StyleTitle"
+        android:text="设置安全号码"
+        />
+
+    <TextView
+        android:gravity="center"
+        style="@style/ContentStyle"
+        android:text="SIM卡变更后"
+        />
+
+    <TextView
+        android:gravity="center"
+        style="@style/ContentStyle"
+        android:text="报警短信回发送至安全号码"
+        />
+
+    <EditText
+        android:id="@+id/et_safe_phone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="请输入安全号码"
+        android:inputType="phone"
+
+        />
+
+    <Button
+        android:onClick="btnSelectContacts"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/button"
+        android:text="选择联系人"
+        />
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center"
+        >
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@android:drawable/presence_invisible"
+            />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@android:drawable/presence_invisible"
+            />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@android:drawable/presence_online"
+            />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@android:drawable/presence_invisible"
+            />
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_horizontal">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageView"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:src="@mipmap/phone"/>
+
+        <Button
+            android:id="@+id/btn_setup1Next"
+            style="@style/SetupBtnNextStyle"
+            />
+        <Button
+            android:id="@+id/btn_setup1Previous"
+            style="@style/SetupBtnPreviousStyle"
+            />
+
+    </RelativeLayout>
+
+
+</LinearLayout>

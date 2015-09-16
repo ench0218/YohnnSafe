@@ -1,0 +1,76 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    xmlns:ench="http://schemas.android.com/apk/com.yohnnsafe.ench_wu.yohnnsafe"
+    android:layout_height="match_parent"
+    tools:context="com.yohnnsafe.ench_wu.yohnnsafe.activity.Setup1_Activity"
+    android:orientation="vertical">
+
+    <TextView
+        style="@style/StyleTitle"
+        android:text="设置完成"
+        />
+
+   <CheckBox
+       android:id="@+id/checkbox"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+      android:text="防盗保护没有开启"/>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center"
+        >
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@android:drawable/presence_invisible"
+            />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@android:drawable/presence_invisible"
+            />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@android:drawable/presence_invisible"
+            />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@android:drawable/presence_online"
+            />
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_horizontal">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageView"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:src="@mipmap/phone"/>
+
+        <Button
+            android:id="@+id/btn_setup1Next"
+            style="@style/SetupBtnNextStyle"
+            android:text="设置完成"
+            />
+        <Button
+            android:id="@+id/btn_setup1Previous"
+            style="@style/SetupBtnPreviousStyle"
+
+            />
+
+    </RelativeLayout>
+
+
+</LinearLayout>

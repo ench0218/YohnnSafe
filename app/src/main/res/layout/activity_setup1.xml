@@ -1,0 +1,98 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.yohnnsafe.ench_wu.yohnnsafe.activity.Setup1_Activity"
+    android:orientation="vertical">
+
+    <TextView
+        style="@style/StyleTitle"
+        android:text="欢迎使用手机卫士"
+        />
+
+    <TextView
+        android:gravity="center"
+        android:drawableLeft="@android:drawable/btn_star_big_on"
+        style="@style/ContentStyle"
+        android:text="您的手机防盗卫士:"
+         />
+
+    <TextView
+        android:gravity="center"
+        android:drawableLeft="@android:drawable/btn_star_big_on"
+        style="@style/ContentStyle"
+        android:text="SIM卡变更通知:"
+         />
+
+    <TextView
+        android:gravity="center"
+        android:drawableLeft="@android:drawable/btn_star_big_on"
+        style="@style/ContentStyle"
+        android:text="GPS追踪:"
+        />
+
+    <TextView
+        android:gravity="center"
+        android:drawableLeft="@android:drawable/btn_star_big_on"
+        style="@style/ContentStyle"
+        android:text="远程销毁数据:"
+        />
+
+    <TextView
+        android:gravity="center"
+        android:drawableLeft="@android:drawable/btn_star_big_on"
+        style="@style/ContentStyle"
+        android:text="远程锁屏:"
+        />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center"
+        >
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@android:drawable/presence_online"
+            />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@android:drawable/presence_invisible"
+            />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@android:drawable/presence_invisible"
+            />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@android:drawable/presence_invisible"
+            />
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_horizontal">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageView"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:src="@mipmap/setup1"/>
+
+        <Button
+            android:id="@+id/btn_setup1Next"
+            style="@style/SetupBtnNextStyle"
+             />
+
+    </RelativeLayout>
+
+
+</LinearLayout>
