@@ -16,7 +16,6 @@ public class TaskInfo {
     private long memorySize;
 
 
-
     /**
      * 是否是用户进程
      */

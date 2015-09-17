@@ -30,17 +30,21 @@
             android:paddingLeft="5dp"
             android:text="剩余/内存大小:100M/500M"
             android:textSize="15sp" />
+
+
     </LinearLayout>
 
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_weight="11">
 
 
         <ListView
             android:id="@+id/lv_task"
             android:layout_width="match_parent"
-        android:layout_height="match_parent"></ListView>
+            android:layout_height="match_parent"></ListView>
+
         <TextView
             android:id="@+id/tv_task_tesutiaomu"
             android:layout_width="match_parent"
@@ -49,4 +53,41 @@
             android:text="用户应用"
             android:textColor="@android:color/white" />
     </FrameLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+        <Button
+            android:onClick="selectAll"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/button"
+            android:text="全选" />
+
+        <Button
+            android:onClick="selectf"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/button"
+            android:text="反选" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/button"
+            android:text="清理" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/button"
+            android:text="设置" />
+
+    </LinearLayout>
 </LinearLayout>

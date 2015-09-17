@@ -9,7 +9,9 @@ import android.text.format.Formatter;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
+import android.widget.AdapterView;
 import android.widget.BaseAdapter;
+import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -34,6 +36,8 @@ public class TaskManager_Activity extends Activity {
     private ListView lvTask;
     @ViewInject(R.id.tv_task_tesutiaomu)
     private TextView tvTs;
+    @ViewInject(R.id.cb_task)
+    private CheckBox cbTask;
     private int processCount;
     private long totalMem;
     private long availMem;
@@ -97,44 +101,7 @@ public class TaskManager_Activity extends Activity {
         }.start();
     }
 
-//    private Handler handler = new Handler() {
-//        @Override
-//        public void handleMessage(Message msg) {
-//            lvTask.setAdapter(new TaskAdapter());
-//        }
-//    };
 
-    public void initUI() {
-
-        ViewUtils.inject(this);
-        //通过SystemInfoUtils 获取当前进程数
-        processCount = SystemInfoUtils.getProcessCount(this);
-        tvTask.setText("进程:" + processCount);
-        tvRam.setText("剩余/内存大小:"
-                + Formatter.formatFileSize(this, availMem)
-                + "/"
-                + Formatter.formatFileSize(this, totalMem));
-
-        lvTask.setOnScrollListener(new AbsListView.OnScrollListener() {
-            @Override
-            public void onScrollStateChanged(AbsListView view, int scrollState) {
-
-            }
-
-            @Override
-            public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
-
-                if (userTaskInfos!=null & systemAppInfos!=null){
-                    if (firstVisibleItem<userTaskInfos.size()+1){
-                        tvTs.setText("用户程序");
-                    }else {
-                        tvTs.setText("系统程序");
-                    }
-                }
-            }
-        });
-
-    }
 
     private class TaskManagerAdapter extends BaseAdapter {
         @Override
@@ -200,8 +167,10 @@ public class TaskManager_Activity extends Activity {
                 holder.ivTaskIcon = (ImageView) view.findViewById(R.id.iv_task_icon);
                 holder.tvTaskTitle = (TextView) view.findViewById(R.id.tv_task_title);
                 holder.tvTaskStorage = (TextView) view.findViewById(R.id.tv_task_storage);
+                holder.cbTask = (CheckBox) view.findViewById(R.id.cb_task);
                 view.setTag(holder);
             }
+
             TaskInfo taskInfo;
             if (position < userTaskInfos.size() + 1) {
                 taskInfo = userTaskInfos.get(position - 1);
@@ -214,6 +183,12 @@ public class TaskManager_Activity extends Activity {
             long memorySize = taskInfo.getMemorySize();
             holder.tvTaskStorage.setText("内存占用:" + Formatter.formatFileSize(TaskManager_Activity.this, memorySize));
 
+            if (taskInfo.isChecked()) {
+                holder.cbTask.setChecked(true);
+            } else {
+                holder.cbTask.setChecked(false);
+            }
+
             return view;
         }
 
@@ -223,6 +198,90 @@ public class TaskManager_Activity extends Activity {
         ImageView ivTaskIcon;
         TextView tvTaskTitle;
         TextView tvTaskStorage;
+        CheckBox cbTask;
+
+    }
+
+    public void initUI() {
+
+        ViewUtils.inject(this);
+        //通过SystemInfoUtils 获取当前进程数
+        processCount = SystemInfoUtils.getProcessCount(this);
+        tvTask.setText("进程:" + processCount);
+        tvRam.setText("剩余/内存大小:"
+                + Formatter.formatFileSize(this, availMem)
+                + "/"
+                + Formatter.formatFileSize(this, totalMem));
+        //ListView滚动监听
+        lvTask.setOnScrollListener(new AbsListView.OnScrollListener() {
+            @Override
+            public void onScrollStateChanged(AbsListView view, int scrollState) {
+
+            }
+
+            @Override
+            public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
+
+                if (userTaskInfos != null & systemAppInfos != null) {
+                    if (firstVisibleItem < userTaskInfos.size() + 1) {
+                        tvTs.setText("用户程序");
+                    } else {
+                        tvTs.setText("系统程序");
+                    }
+                }
+            }
+        });
+
+        //ListView点击事件
+        lvTask.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Object obj = lvTask.getItemAtPosition(position);
+
+                if (obj != null && obj instanceof TaskInfo) {
+                    TaskInfo taskInfo = (TaskInfo) obj;
+                    ViewHolder holder = (ViewHolder) view.getTag();
+
+                    if (taskInfo.isChecked()) {
+                        taskInfo.setChecked(false);
+                        holder.cbTask.setChecked(false);
+                    } else {
+                        taskInfo.setChecked(true);
+                        holder.cbTask.setChecked(true);
+                    }
+
+                }
+
+            }
+        });
+
+    }
+
+    /**
+     * 全选
+     *
+     * @param view
+     */
+    public void selectAll(View view) {
+        for (TaskInfo taskInfo : userTaskInfos) {
+            taskInfo.setChecked(true);
+        }
+
+        for (TaskInfo taskInfo : systemAppInfos) {
+            taskInfo.setChecked(true);
+        }
+        adapter.notifyDataSetChanged();
+    }
+
+    public void selectf(View view) {
+        for (TaskInfo taskInfo : userTaskInfos) {
+            taskInfo.setChecked(!taskInfo.isChecked());
+
+        }
+        for (TaskInfo taskInfo : systemAppInfos) {
+            taskInfo.setChecked(!taskInfo.isChecked());
+        }
+        adapter.notifyDataSetChanged();
 
     }
 }
