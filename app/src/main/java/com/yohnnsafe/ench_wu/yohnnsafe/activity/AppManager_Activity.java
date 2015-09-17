@@ -37,7 +37,6 @@ public class AppManager_Activity extends Activity {
     private List<AppInfo> appInfos;
     private List<AppInfo> userAppInfos;
     private List<AppInfo> systemAppInfos;
-    private AppInfo clickAppInfo;
     private TextView appTag;
     private PopupWindow popupWindow;
 

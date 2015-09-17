@@ -31,8 +31,22 @@
             android:text="剩余/内存大小:100M/500M"
             android:textSize="15sp" />
     </LinearLayout>
-    <ListView
+
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-    </ListView>
+
+
+        <ListView
+            android:id="@+id/lv_task"
+            android:layout_width="match_parent"
+        android:layout_height="match_parent"></ListView>
+        <TextView
+            android:id="@+id/tv_task_tesutiaomu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#FF888888"
+            android:text="用户应用"
+            android:textColor="@android:color/white" />
+    </FrameLayout>
 </LinearLayout>
